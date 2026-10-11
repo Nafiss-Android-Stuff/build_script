@@ -48,6 +48,10 @@ git clone https://github.com/PocoF3Releases/device_xiaomi_camera.git -b aosp-17 
 git clone https://gitlab.com/johnmart19/vendor_xiaomi_camera.git -b aosp-17 vendor/xiaomi/camera
 git clone https://github.com/Nafis905/packages_apps_GameBar.git -b 17  packages/apps/GameBar
 
+echo "=== Setup Vendor Keys ==="
+git clone https://github.com/Nafis905/keys.git vendor/hertzify-priv/keys
+sed -i 's|vendor/lineage-priv/keys/testkey|vendor/hertzify-priv/keys/testkey|g' vendor/hertzify-priv/keys/keys.mk
+
 echo "=== Setting up Build Environment ==="
 . build/envsetup.sh
 lunch hertzify_alioth-cp2a-user
