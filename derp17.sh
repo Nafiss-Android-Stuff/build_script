@@ -42,7 +42,7 @@ git clone https://github.com/Tsaritsa-Prjkt/android_hardware_dolby.git -b lineag
 
 echo "=== Setting up Build Environment ==="
 . build/envsetup.sh
-lunch lineage_alioth-bp4a-user
+lunch lineage_alioth-cp2a-user
 
 echo "=== Cleaning Build Artifacts ==="
 m installclean
