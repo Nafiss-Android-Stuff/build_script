@@ -40,7 +40,6 @@ SOONG_REMOTE="https://github.com/DarkKiller28/android_build_soong_crdroid.git"
 
 SOONG_COMMITS=(
     4983b36b6c1528e41d75f07689dc909d5e1d16e3
-    0849369b22a1858679a2b819bc8471305f7813ea
 )
 
 if [ -d "$SOONG_DIR/.git" ]; then
