@@ -34,6 +34,43 @@ else
     /opt/crave/resync.sh
 fi
 
+echo "=== Applying Optional Soong Patches ==="
+SOONG_DIR="build/soong"
+SOONG_REMOTE="https://github.com/DarkKiller28/android_build_soong_crdroid.git"
+
+SOONG_COMMITS=(
+    4983b36b6c1528e41d75f07689dc909d5e1d16e3
+    0849369b22a1858679a2b819bc8471305f7813ea
+)
+
+if [ -d "$SOONG_DIR/.git" ]; then
+    pushd "$SOONG_DIR" >/dev/null
+
+    for commit in "${SOONG_COMMITS[@]}"; do
+        if git merge-base --is-ancestor "$commit" HEAD 2>/dev/null; then
+            echo "Already applied: $commit"
+            continue
+        fi
+
+        if ! git fetch "$SOONG_REMOTE" "$commit"; then
+            echo "Unable to fetch $commit. Skipping."
+            continue
+        fi
+
+        if git cherry-pick "$commit"; then
+            echo "Successfully applied: $commit"
+        else
+            echo "Cherry-pick failed or conflicted: $commit"
+            echo "Aborting cherry-pick and skipping."
+            git cherry-pick --abort || true
+        fi
+    done
+
+    popd >/dev/null
+else
+    echo "Soong Git repository not found. Skipping optional patches."
+fi
+
 echo "=== Cloning Device  Trees ==="
 git clone https://github.com/Nafiss-Android-Stuff/android_device_xiaomi_sm8250-common.git -b Hertzify-17 device/xiaomi/sm8250-common
 git clone https://github.com/Nafiss-Android-Stuff/android_device_xiaomi_alioth.git -b Hertzify-17 device/xiaomi/alioth
