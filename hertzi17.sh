@@ -26,7 +26,7 @@ done
 rm -rf vendor/*-priv/keys
 
 echo "=== Initializing Repo ==="
-repo init --depth=1 -u https://github.com/HertzifyOS/android_manifest.git -b 17 --git-lfs
+repo init --depth=1 -u https://github.com/HertzifyOS/android_manifest.git -b 17t --git-lfs
 
 echo "=== Syncing Source Tree ==="
 if [ -f /usr/bin/resync ]; then
