@@ -2,7 +2,6 @@
 
 echo "=== Cleaning up previous manifests and conflicting directories ==="
 rm -rf .repo/local_manifests
-rm -rf prebuilts/clang/host/linux-x86
 rm -rf build
 
 # Target directories to clear before cloning custom trees
@@ -22,6 +21,9 @@ DIRS_TO_REMOVE=(
 for dir in "${DIRS_TO_REMOVE[@]}"; do
     rm -rf "$dir"
 done
+
+# Remove matching private key directories separately
+rm -rf vendor/*-priv/keys
 
 echo "=== Initializing Repo ==="
 repo init --depth=1 -u https://github.com/HertzifyOS/android_manifest.git -b 17 --git-lfs
