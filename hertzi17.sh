@@ -73,11 +73,11 @@ else
 fi
 
 echo "=== Cloning Device  Trees ==="
-git clone https://github.com/Nafiss-Android-Stuff/android_device_xiaomi_sm8250-common.git -b Hertzify-17 device/xiaomi/sm8250-common
-git clone https://github.com/Nafiss-Android-Stuff/android_device_xiaomi_alioth.git -b Hertzify-17 device/xiaomi/alioth
-git clone https://github.com/Nafiss-Android-Stuff/android_vendor_xiaomi_alioth.git -b lineage-23.2 vendor/xiaomi/alioth
+git clone https://github.com/Nafiss-Android-Stuff/android_device_xiaomi_sm8250-common.git -b test device/xiaomi/sm8250-common
+git clone https://github.com/Nafiss-Android-Stuff/android_device_xiaomi_alioth.git -b test device/xiaomi/alioth
+git clone https://github.com/Nafiss-Android-Stuff/android_vendor_xiaomi_alioth.git -b test vendor/xiaomi/alioth
 git clone https://github.com/Nafiss-Android-Stuff/android_vendor_xiaomi_sm8250-common.git -b 17 vendor/xiaomi/sm8250-common
-git clone https://github.com/Nafis905/hardware_xiaomi.git -b lineage-23.2 hardware/xiaomi
+git clone https://github.com/Nafis905/hardware_xiaomi.git -b test hardware/xiaomi
 git clone --depth=1 https://github.com/TIMISONG-dev/kernel_xiaomi_sm8250.git -b magictime-new kernel/xiaomi/sm8250
 
 echo "=== Cloning Extra Trees ==="
